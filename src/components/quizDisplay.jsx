@@ -4,7 +4,7 @@ import ScoreDisplay from "./score";
 
 const QuizDisplay=()=>{
 
-    let [quizData,quizCount,isAnswered,disable,handleOptionClick,handleNext,score,setQuizData,setQuizCount,setIsAnswered,setScore,setDisable,setResetQuiz]=useQuizDisplay();
+    let [quizData,quizCount,isAnswered,handleOptionClick,handleNext,score,setQuizData,setQuizCount,setIsAnswered,setScore,setResetQuiz]=useQuizDisplay();
 
     // return (quizData==null)?<h1>Loading</h1>:(
     //     <div className="bg-[#090814] w-[500px]  rounded-3xl p-4 text-white">{console.log(quizData)}
@@ -23,7 +23,7 @@ const QuizDisplay=()=>{
     if(quizData==null) return <h1>Loading...</h1>
 
     let current_quiz=quizData[quizCount];
-    return   (quizCount>9)?<ScoreDisplay marks={[score,setQuizData,setQuizCount,setIsAnswered,setScore,setDisable,setResetQuiz]}/>: (
+    return   (quizCount>9)?<ScoreDisplay marks={[score,setQuizData,setQuizCount,setIsAnswered,setScore,setResetQuiz]}/>: (
          <div className="bg-[#090814] w-[350px]  rounded-3xl p-4 text-white">
           <h2 className="text-lg font-medium">{(quizCount+1+". ")+current_quiz.question}</h2>
             {  
@@ -53,7 +53,7 @@ const QuizDisplay=()=>{
             <div className="text-center  bg-white text-black mt-2 px-1.5 font-medium rounded h-8 w-16">{quizCount}/10</div>
           <button
             className="bg-white text-black mt-2 px-1.5 font-medium rounded h-8 w-16"
-            disabled={disable}
+            // disabled={disable}
             onClick={handleNext}
           >
             Next

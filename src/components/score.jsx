@@ -1,12 +1,11 @@
 const ScoreDisplay=({marks})=>{
-    let [score,setQuizData,setQuizCount,setIsAnswered,setScore,setDisable,setResetQuiz]=marks;
+    let [score,setQuizData,setQuizCount,setIsAnswered,setScore,setResetQuiz]=marks;
     function restart(){ 
         setResetQuiz(prev=>prev+1)
         setQuizData(null);
         setQuizCount(0);
         setIsAnswered(false);
         setScore(0);
-        setDisable(true);
        
     }
 

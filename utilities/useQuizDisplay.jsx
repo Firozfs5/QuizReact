@@ -52,7 +52,6 @@ const useQuizDisplay=()=>{
     let [quizCount,setQuizCount]=useState(0);
     let [isAnswered,setIsAnswered]=useState(false);
     let [score,setScore]=useState(0);
-    let [disable,setDisable]=useState(true);
     
     
     const apiLinks={
@@ -93,12 +92,15 @@ const useQuizDisplay=()=>{
     }
 
     function handleNext(){
-        setDisable(true);
+        if(isAnswered==false){
+            alert("Choose an option")
+        }else{
         setQuizCount(prev=>prev+1);
         setIsAnswered(false);
+        }
     }
 
-    return [quizData,quizCount,isAnswered,disable,handleOptionClick,handleNext,score,setQuizData,setQuizCount,setIsAnswered,setScore,setDisable,setResetQuiz];
+    return [quizData,quizCount,isAnswered,handleOptionClick,handleNext,score,setQuizData,setQuizCount,setIsAnswered,setScore,setResetQuiz];
 }
 
 export default useQuizDisplay;
