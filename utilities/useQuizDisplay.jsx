@@ -52,6 +52,7 @@ const useQuizDisplay=()=>{
     let [quizCount,setQuizCount]=useState(0);
     let [isAnswered,setIsAnswered]=useState(false);
     let [score,setScore]=useState(0);
+    let [optionClicked,setOptionClicked]=useState(null);
     
     
     const apiLinks={
@@ -83,10 +84,11 @@ const useQuizDisplay=()=>{
         return array;
     }
 
-    function handleOptionClick(answer,solution){
+    function handleOptionClick(answer,solution,e){
+        setOptionClicked(e.target.innerText);
         setIsAnswered(true);
         if(answer==solution){setScore(prev => prev+1)} 
-        console.log(score);
+        // console.log(score);
         
     }
 
@@ -99,7 +101,8 @@ const useQuizDisplay=()=>{
         }
     }
 
-    return [quizData,quizCount,isAnswered,handleOptionClick,handleNext,score,setQuizData,setQuizCount,setIsAnswered,setScore,setResetQuiz];
+    return [quizData,quizCount,isAnswered,handleOptionClick,handleNext,score,setQuizData,setQuizCount,
+            setIsAnswered,setScore,setResetQuiz,optionClicked];
 }
 
 export default useQuizDisplay;

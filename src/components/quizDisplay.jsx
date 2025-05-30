@@ -4,7 +4,8 @@ import ScoreDisplay from "./score";
 
 const QuizDisplay=()=>{
 
-    let [quizData,quizCount,isAnswered,handleOptionClick,handleNext,score,setQuizData,setQuizCount,setIsAnswered,setScore,setResetQuiz]=useQuizDisplay();
+    let [quizData,quizCount,isAnswered,handleOptionClick,handleNext,score,setQuizData,setQuizCount,
+        setIsAnswered,setScore,setResetQuiz,optionClicked]=useQuizDisplay();
 
     // return (quizData==null)?<h1>Loading</h1>:(
     //     <div className="bg-[#090814] w-[500px]  rounded-3xl p-4 text-white">{console.log(quizData)}
@@ -29,20 +30,43 @@ const QuizDisplay=()=>{
             {  
                 current_quiz.all_questions.map((answer,idx)=>{
                     let classes="my-1 p-1.5 rounded font-medium border-1 border-white bg-black hover:bg-[#393E46] text-white";
-                    if(isAnswered){
-                        if(answer==current_quiz.correct_answer){
-                            classes+=" bg-green-500";
-                        }else{
-                            classes+=" bg-red-500"
-                        }
+
+                      if(isAnswered){
+                          if(answer==optionClicked){
+                            if(answer==current_quiz.correct_answer){
+                              classes+=" bg-green-600"
+                            }else{
+                              classes+=" bg-red-600"
+                            }
+                          }
                         classes+=" pointer-events-none"
-                    }
+                      }
+
+                      if(isAnswered){
+                        if(answer==current_quiz.correct_answer){
+                          classes+=" bg-green-600";
+                          classes+=" pointer-events-none"
+                        }
+                      }
+
+                      if(isAnswered){
+                          classes+=" pointer-events-none"
+                      }
+
+                    // if(isAnswered){
+                    //     if(answer==current_quiz.correct_answer){
+                    //         classes+=" bg-green-500";
+                    //     }else{
+                    //         classes+=" bg-red-500"
+                    //     }
+                    //     classes+=" pointer-events-none"
+                    // }
 
                     return (
                         <div
                         key={idx}
                         className={classes}
-                        onClick={()=>{handleOptionClick(answer,current_quiz.correct_answer)}}
+                        onClick={(e)=>{handleOptionClick(answer,current_quiz.correct_answer,e)}}
                         >
                             {answer}
                         </div>
