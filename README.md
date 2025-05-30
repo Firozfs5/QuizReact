@@ -19,3 +19,4 @@ If you are developing a production application, we recommend using TypeScript wi
  sports-https://opentdb.com/api.php?amount=10&category=21&type=multiple
  animals-https://opentdb.com/api.php?amount=10&category=27&type=multiple
  
+ Website-Link:https://quiz-react-firoz.vercel.app/

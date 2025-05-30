@@ -24,16 +24,16 @@ const QuizDisplay=()=>{
 
     let current_quiz=quizData[quizCount];
     return   (quizCount>9)?<ScoreDisplay marks={[score,setQuizData,setQuizCount,setIsAnswered,setScore,setDisable,setResetQuiz]}/>: (
-         <div className="bg-[#090814] w-[500px]  rounded-3xl p-4 text-white">
+         <div className="bg-[#090814] w-[350px]  rounded-3xl p-4 text-white">
           <h2 className="text-lg font-medium">{(quizCount+1+". ")+current_quiz.question}</h2>
             {  
                 current_quiz.all_questions.map((answer,idx)=>{
-                    let classes="my-1 p-1.5 rounded border-white bg-black hover:bg-[#393E46] text-white";
+                    let classes="my-1 p-1.5 rounded font-medium border-1 border-white bg-black hover:bg-[#393E46] text-white";
                     if(isAnswered){
                         if(answer==current_quiz.correct_answer){
-                            classes+=" bg-green-600";
+                            classes+=" bg-green-500";
                         }else{
-                            classes+=" bg-red-600"
+                            classes+=" bg-red-500"
                         }
                         classes+=" pointer-events-none"
                     }
@@ -49,13 +49,16 @@ const QuizDisplay=()=>{
                     )
                 })
             }
+          <div className="flex justify-between">
+            <div className="text-center  bg-white text-black mt-2 px-1.5 font-medium rounded h-8 w-16">{quizCount}/10</div>
           <button
-            className="bg-white text-black mt-2 px-1.5 font-medium rounded"
+            className="bg-white text-black mt-2 px-1.5 font-medium rounded h-8 w-16"
             disabled={disable}
             onClick={handleNext}
           >
             Next
           </button>
+          </div> 
 
         </div>
     )

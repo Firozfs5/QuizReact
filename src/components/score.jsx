@@ -11,9 +11,11 @@ const ScoreDisplay=({marks})=>{
     }
 
     return (
-        <div className="bg-[#090814] w-[500px]  rounded-3xl p-4 text-white">
-            <h1 className="text-lg font-medium">your score is : {score}</h1>
-            <button onClick={restart}>Restart</button>
+        <div className="bg-[#090814] w-[300px]  h-35 flex flex-col items-center justify-center  rounded-3xl p-4 text-white">
+            <h1 className="text-lg font-medium">your score is : {score}/10</h1>
+            <button onClick={restart} 
+            className="bg-white text-black p-1 rounded-lg mt-5 font-medium"
+            >Restart</button>
         </div>
     )
 }
