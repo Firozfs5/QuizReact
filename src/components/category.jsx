@@ -4,8 +4,8 @@ const Category=()=>{
 
    let [topic,setTopic,handleSubmitBtn]=useCategory();
     return (
-      <form onSubmit={handleSubmitBtn} className="bg-[#123458] w-[850px] h-[500px] rounded-2xl text-white flex flex-col justify-center items-center">
-        <label htmlFor="select" className="text-5xl font-bold mb-8">Choose Category</label>
+      <form onSubmit={handleSubmitBtn} className="bg-[#123458] w-[300px] h-[300px] rounded-2xl text-white flex flex-col justify-center items-center">
+        <label htmlFor="select" className="text-3xl font-bold mb-8">Choose Category</label>
         <select id="select" value={topic} onChange={(e)=> setTopic(e.target.value)} className="bg-white text-black w-60 h-10 rounded-md font-semibold ">
             <option className="font-semibold p-2" value="History">History</option>
             <option className="font-semibold p-2" value="Film">Film</option>
