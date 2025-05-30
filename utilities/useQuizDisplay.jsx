@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 
 // const useQuizDisplay=()=>{
@@ -53,6 +53,11 @@ const useQuizDisplay=()=>{
     let [isAnswered,setIsAnswered]=useState(false);
     let [score,setScore]=useState(0);
     let [optionClicked,setOptionClicked]=useState(null);
+
+    // state variables to track time and more
+    let [time,setTime]=useState(15);
+    let trackSeconds=useRef(0);
+    let timeUp=useRef(0);
     
     
     const apiLinks={
@@ -63,8 +68,32 @@ const useQuizDisplay=()=>{
     }
 
     useEffect(()=>{
-        dataFetcher()
+        dataFetcher();
+        return ()=>{
+            console.log("its unmounted now")
+        }
     },[categoryname,resetQuiz])
+
+    useEffect(()=>{
+              setTime(15);
+
+        trackSeconds.current=setInterval(()=>{
+            setTime(prev=>prev-1);
+        },1000)
+
+        timeUp.current=setTimeout(()=>{
+            clearInterval(trackSeconds.current);
+            setIsAnswered(true);
+        },15000);
+
+        return ()=>{
+            console.log("trackSeconsds clearedS")
+            clearInterval(trackSeconds.current)
+            clearTimeout(timeUp.current);
+        }
+    },[quizCount])
+
+
 
     async function dataFetcher(){
         let rawData=await fetch(apiLinks[categoryname]);
@@ -89,6 +118,7 @@ const useQuizDisplay=()=>{
         setIsAnswered(true);
         if(answer==solution){setScore(prev => prev+1)} 
         // console.log(score);
+        clearInterval(trackSeconds.current);
         
     }
 
@@ -96,13 +126,17 @@ const useQuizDisplay=()=>{
         if(isAnswered==false){
             alert("Choose an option")
         }else{
+            
         setQuizCount(prev=>prev+1);
         setIsAnswered(false);
+
+  
+
         }
     }
 
     return [quizData,quizCount,isAnswered,handleOptionClick,handleNext,score,setQuizData,setQuizCount,
-            setIsAnswered,setScore,setResetQuiz,optionClicked];
+            setIsAnswered,setScore,setResetQuiz,optionClicked,time,setTime];
 }
 
 export default useQuizDisplay;
