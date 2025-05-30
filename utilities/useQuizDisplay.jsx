@@ -85,7 +85,6 @@ const useQuizDisplay=()=>{
 
     function handleOptionClick(answer,solution){
         setIsAnswered(true);
-        setDisable(false);
         if(answer==solution){setScore(prev => prev+1)} 
         console.log(score);
         
