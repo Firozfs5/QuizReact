@@ -1,22 +1,27 @@
-# React + Vite
+# 🧠 React Quiz App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean, responsive, and fully functional quiz application built with **React.js**. Users can attempt multiple-choice questions, get immediate results, and restart the quiz anytime. This project demonstrates core React concepts like components, state management, conditional rendering, and user interaction.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- ✔️ Multiple-choice quiz functionality
+- 📊 Score calculation and result display
+- 🔁 Ability to restart the quiz
+- ⚡ Instant feedback after submission (if enabled)
+- 💡 Clean and responsive UI
+- 🔧 Component-based project structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# QuizReact
+---
 
-##The
- Api,s name for Each category
- History-https://opentdb.com/api.php?amount=10&category=23&type=multiple
- Film-https://opentdb.com/api.php?amount=10&category=11&type=multiple
- sports-https://opentdb.com/api.php?amount=10&category=21&type=multiple
- animals-https://opentdb.com/api.php?amount=10&category=27&type=multiple
+## 🛠️ Tech Stack
+
+- **React.js**
+- **JavaScript (ES6+)**
+- **HTML5**
+- **CSS3**
+
+---
  
  Website-Link:https://quiz-react-firoz.vercel.app/
